@@ -1,34 +1,34 @@
-import { useEffect, useState } from 'react'
-import moment from 'moment'
-import momentHijri from 'moment-hijri'
+import { useEffect, useState } from 'react';
+import moment from 'moment';
+import momentHijri from 'moment-hijri';
 
-import Time from '../components/Time'
-import hr from '../assets/img/hr.png'
-import mosque from '../assets/img/mosque.png'
-import candle from '../assets/img/candle.png'
-import candleFlip from '../assets/img/candle-flip.png'
-import star from '../assets/img/star.png'
-import starFlip from '../assets/img/star-flip.png'
+import Time from '../components/Time';
+import hr from '../assets/img/hr.png';
+import mosque from '../assets/img/mosque.png';
+import candle from '../assets/img/candle.png';
+import candleFlip from '../assets/img/candle-flip.png';
+import star from '../assets/img/star.png';
+import starFlip from '../assets/img/star-flip.png';
 
-function convertGregorianToHijri(gregorianDate) {
-  const hijriDate = momentHijri(gregorianDate, 'YYYY-MM-DD').format('iYYYY')
-  return hijriDate
+function convertGregorianToHijri (gregorianDate) {
+  const hijriDate = momentHijri(gregorianDate, 'YYYY-MM-DD').format('iYYYY');
+  return hijriDate;
 }
 
-function HomePage() {
-  const [start, setStart] = useState(moment(new Date().getTime()))
+function HomePage () {
+  const [start, setStart] = useState(moment(new Date().getTime()));
 
-  const end = moment([2025, 1, 28])
-  const days = end.diff(start, 'days')
-  const hours = end.diff(start, 'hours') - end.diff(start, 'days') * 24
-  const minutes = end.diff(start, 'minutes') - end.diff(start, 'hours') * 60
-  const seconds = end.diff(start, 'seconds') - end.diff(start, 'minutes') * 60
+  const end = moment([2026, 1, 18]);
+  const days = end.diff(start, 'days');
+  const hours = end.diff(start, 'hours') - end.diff(start, 'days') * 24;
+  const minutes = end.diff(start, 'minutes') - end.diff(start, 'hours') * 60;
+  const seconds = end.diff(start, 'seconds') - end.diff(start, 'minutes') * 60;
 
   useEffect(() => {
     setInterval(() => {
-      setStart(moment(new Date().getTime()))
-    }, 1000)
-  })
+      setStart(moment(new Date().getTime()));
+    }, 1000);
+  });
 
   return (
     <div style={{ backgroundImage: `url('/bg-pattern.png')` }} className='relative bg-[#185D4E] bg-cover h-screen flex flex-col items-center justify-center space-y-[60px] pt-6 pb-20'>
@@ -65,7 +65,7 @@ function HomePage() {
         <img src={mosque} alt='mosque' />
       </div>
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
